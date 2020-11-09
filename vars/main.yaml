@@ -1,0 +1,41 @@
+---
+homebrew_installed_packages:
+    - autoconf
+    - git
+    - helm
+    - htop
+    - jsonnet
+    - libevent
+    - mcrypt
+    - nmap
+    - node
+    - openssl
+    - python
+    - sqlite
+    - telnet
+    - tree
+    - wget
+    - yarn
+    - zsh
+    - zsh-completion
+
+homebrew_taps:
+    - homebrew/core
+    - homebrew/cask
+
+homebrew_cask_appdir: /Applications
+
+homebrew_cask_apps:
+    - brave-browser
+    - docker_container
+    - firefox
+    - franz
+    - google-chrome
+    - iterm2
+    - postman
+    - sequel-pro
+    - sizeup
+    - slack
+    - virtual-box
+    - visual-studio-code
+    - wireshark
