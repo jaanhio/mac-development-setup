@@ -1,5 +1,5 @@
 ---
-- name: Mac development setup
+- name: Mac development setup part 2
   hosts: 127.0.0.1
   gather_facts: no
 
@@ -11,6 +11,3 @@
     debug:
       msg: "this is an {{ item }}"
     loop: "{{ homebrew_taps }}"
-
-- name: import another playbook
-  import_playbook: playbook2.yaml

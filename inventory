@@ -1,6 +1,5 @@
-[personalmac]
-192.168.1.210
+[localhost]
+localhost
 
-[personalmac:vars]
-ansible_ssh_user=jianhaotan
-ansible_ssh_private_key=~/.ssh/id_rsa.pi
+[localhost:vars]
+ansible_connection=local
