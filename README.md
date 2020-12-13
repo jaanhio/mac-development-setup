@@ -1,7 +1,9 @@
-# Mac Development Ansible Setup
+# Mac Development Ansible Setup (WIP)
 
 This contains ansible code for setting up a Mac with various development related packages/apps for development work.
-
+* homebrew apps/packages setup (completed)
+* dotfile setup (WIP)
+* mac configuration setup (WIP)
 ---
 ## Pre-setup steps
 These steps have to be executed manually in order to get ansible onto local machine.
@@ -42,11 +44,7 @@ export PATH=/Users/<user>/Library/Python/<version number>/bin:$PATH
 ---
 
 ## Setup
-### 1. Install all required Ansible roles.
-```
-ansible-galaxy install -r requirements.yaml
-```
-### 2. Run playbook inside this directory.
+### Run playbook inside this directory.
 ```
 ansible-playbook main.yml -i inventory --ask-become-pass
 ```
