@@ -1,0 +1,105 @@
+---
+- name: Playbook for handling set up of all homebrew packages/apps
+  hosts: 127.0.0.1
+  become: true
+
+  handlers:
+  - name: Clear Homebrew cache
+    file:
+      path: "{{ homebrew_cache_path.stdout | trim }}"
+      state: absent
+    become: "{{ (homebrew_user != ansible_user_id) | bool}}"
+    become_user: "{{ homebrew_user }}"
+
+  tasks:
+  - name: Set up Homebrew ownership variables
+    set_fact:
+      homebrew_user: "{{ homebrew_user | default(ansible_user_id) }}"
+      homebrew_group: "{{ homebrew_group | default(ansible_group_id) }}"
+
+  - name: Set Homebrew cache path
+    command: "{{ homebrew_path }}/bin/brew --cache"
+    register: homebrew_cache_path
+
+  - name: Ensure Homebrew is installed and with correct permission
+    file:
+      path: "{{ homebrew_path }}"
+      owner: "{{ homebrew_user }}"
+      group: wheel
+      state: directory
+      mode: 0775
+    become: true
+
+  - name: Ensure Caskroom directory has correct permission
+    file:
+      path: "{{ homebrew_caskroom_path }}"
+      owner: "{{ homebrew_user }}"
+      group: wheel
+      state: directory
+      mode: 0775
+    become: true
+
+  - name: Ensure Cellar directory has correct permission
+    file:
+      path: "{{ homebrew_cellar_path }}"
+      owner: "{{ homebrew_user }}"
+      group: wheel
+      state: directory
+      mode: 0755
+    become: true
+
+  - name: Ensure Frameworks directory has correct permission
+    file:
+      path: "{{ homebrew_frameworks_path }}"
+      owner: "{{ homebrew_user }}"
+      group: wheel
+      state: directory
+      mode: 0755
+    become: true
+
+  - name: Ensure bin directory has correct permission
+    file:
+      path: "{{ homebrew_bin_path }}"
+      owner: "{{ homebrew_user }}"
+      group: wheel
+      state: directory
+      mode: 0755
+    become: true
+
+  - name: Ensure sbin directory has correct permission
+    file:
+      path: "{{ homebrew_sbin_path }}"
+      owner: "{{ homebrew_user }}"
+      group: wheel
+      state: directory
+      mode: 0755
+    become: true
+
+  - name: Ensure share directory has correct permission
+    file:
+      path: "{{ homebrew_share_path }}"
+      owner: "{{ homebrew_user }}"
+      group: wheel
+      state: directory
+      mode: 0755
+    become: true
+
+  - name: Install packages
+    community.general.homebrew:
+      state: latest
+      name: {{ item.name | default(item) }}
+      path: {{ item.path | default(omit) }}
+      install_options: {{ item.install_options | default(omit) }}
+    loop: {{ homebrew_installed_packages }}
+    notify:
+      - Clear Homebrew cache
+
+  - name: Install cask apps
+    community.general.homebrew_cask:
+      state: present
+      name: {{ item.name | default(item) }}
+      path: {{ item.path | default(omit) }}
+      install_options: {{ item.install_options | default(omit) }}
+    loop: {{ homebrew_cask_apps }}
+    notify:
+      - Clear Homebrew cache

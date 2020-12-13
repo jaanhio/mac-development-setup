@@ -1,4 +1,14 @@
 ---
+homebrew_base_path: /usr/local
+
+homebrew_path: "{{ homebrew_base_path }}/Homebrew"
+homebrew_caskroom_path: "{{ homebrew_base_path }}/Caskroom"
+homebrew_cellar_path: "{{ homebrew_base_path }}/Cellar"
+homebrew_frameworks_path: "{{ homebrew_base_path }}/Frameworks"
+homebrew_bin_path: "{{ homebrew_base_path }}/bin"
+homebrew_sbin_path: "{{ homebrew_base_path }}/sbin"
+homebrew_share_path: "{{ homebrew_base_path }}/share"
+
 homebrew_installed_packages:
     - autoconf
     - git
@@ -27,15 +37,16 @@ homebrew_cask_appdir: /Applications
 
 homebrew_cask_apps:
     - brave-browser
-    - docker_container
-    - firefox
-    - franz
     - google-chrome
+    - firefox
+    - docker
+    - franz
     - iterm2
     - postman
     - sequel-pro
     - sizeup
     - slack
+    - vagrant
     - virtual-box
     - visual-studio-code
     - wireshark
