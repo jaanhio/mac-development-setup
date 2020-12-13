@@ -1,0 +1,10 @@
+---
+- name: Mac development setup
+  hosts: 127.0.0.1
+  gather_facts: no
+
+  vars_files:
+    - vars/main.yaml
+
+- name: Homebrew setup
+  import_playbook: homebrew-setup.yaml
