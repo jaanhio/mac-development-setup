@@ -1,7 +1,9 @@
 ---
 - name: Playbook for handling set up of all homebrew packages/apps
   hosts: 127.0.0.1
-  become: true
+
+  vars_files:
+    - vars/main.yaml
 
   handlers:
   - name: Clear Homebrew cache

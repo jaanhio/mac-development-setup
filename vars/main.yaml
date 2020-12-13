@@ -37,7 +37,6 @@ homebrew_cask_appdir: /Applications
 
 homebrew_cask_apps:
     - brave-browser
-    - google-chrome
     - firefox
     - docker
     - franz
@@ -47,6 +46,6 @@ homebrew_cask_apps:
     - sizeup
     - slack
     - vagrant
-    - virtual-box
+    - virtualbox
     - visual-studio-code
     - wireshark
