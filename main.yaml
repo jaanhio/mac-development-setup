@@ -6,11 +6,5 @@
   vars_files:
     - vars/main.yaml
 
-  tasks:
-  - name: Print out the variables
-    debug:
-      msg: "this is an {{ item }}"
-    loop: "{{ homebrew_taps }}"
-
-- name: import another playbook
-  import_playbook: playbook2.yaml
+- name: Homebrew setup
+  import_playbook: homebrew-setup.yaml

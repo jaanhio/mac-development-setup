@@ -87,19 +87,19 @@
   - name: Install packages
     community.general.homebrew:
       state: latest
-      name: {{ item.name | default(item) }}
-      path: {{ item.path | default(omit) }}
-      install_options: {{ item.install_options | default(omit) }}
-    loop: {{ homebrew_installed_packages }}
+      name: "{{ item.name | default(item) }}"
+      path: "{{ item.path | default(omit) }}"
+      install_options: "{{ item.install_options | default(omit) }}"
+    loop: "{{ homebrew_installed_packages }}"
     notify:
       - Clear Homebrew cache
 
   - name: Install cask apps
     community.general.homebrew_cask:
       state: present
-      name: {{ item.name | default(item) }}
-      path: {{ item.path | default(omit) }}
-      install_options: {{ item.install_options | default(omit) }}
-    loop: {{ homebrew_cask_apps }}
+      name: "{{ item.name | default(item) }}"
+      path: "{{ item.path | default(omit) }}"
+      install_options: "{{ item.install_options | default(omit) }}"
+    loop: "{{ homebrew_cask_apps }}"
     notify:
       - Clear Homebrew cache
