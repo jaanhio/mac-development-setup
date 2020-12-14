@@ -1,0 +1,23 @@
+---
+- name: Playbook for handling set up of all homebrew packages/apps
+  hosts: 127.0.0.1
+
+  tasks:
+    - name: Register dotfiles target directory
+      shell: "cd ~ && pwd"
+      register: dotfiles_dir
+
+    - name: Copy zshrc file
+      copy:
+        src: "{{ playbook_dir }}/files/dotfiles/.zshrc"
+        dest: "{{ dotfiles_dir.stdout }}"
+        owner: "{{ ansible_user_id }}"
+        group: staff
+        mode: '0644'
+        backup: yes
+
+    - name: Print out dotfiles dir
+      debug:
+        msg: "where am i {{ dotfiles_dir.stdout }}"
+
+    # - name: Copy inputrc file
