@@ -3,6 +3,9 @@
   hosts: 127.0.0.1
 
   tasks:
+    - name: Ensure dotfiles submodule has been pulled
+      shell: "git submodule init && git submodule update"
+
     - name: Register dotfiles target directory
       shell: "cd ~ && pwd"
       register: dotfiles_dir
