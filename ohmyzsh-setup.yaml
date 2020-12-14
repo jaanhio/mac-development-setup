@@ -1,0 +1,17 @@
+---
+- name: Playbook for handling set up of ohmyzsh
+  hosts: 127.0.0.1
+
+  tasks:
+    - name: Register root directory
+      shell: "cd ~ && pwd"
+      register: root_dir
+
+    - name: Ensure oh-my-zsh has been installed
+      stat:
+        path: "{{ root_dir }}/.oh-my-zsh"
+      register: oh-my-zsh-result
+
+    - name: Install oh-my-zsh if does not exist
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      when: not oh-my-zsh-result.stat.exists

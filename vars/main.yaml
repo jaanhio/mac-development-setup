@@ -15,6 +15,7 @@ homebrew_installed_packages:
     - helm
     - htop
     - jsonnet
+    - kubectl
     - libevent
     - mcrypt
     - nmap
@@ -28,6 +29,7 @@ homebrew_installed_packages:
     - yarn
     - zsh
     - zsh-completion
+    - zsh-syntax-highlighting
 
 homebrew_taps:
     - homebrew/core
