@@ -1,5 +1,5 @@
 ---
-- name: Playbook for handling set up of all homebrew packages/apps
+- name: Playbook for handling set up of all dotfiles
   hosts: 127.0.0.1
 
   tasks:
@@ -18,9 +18,5 @@
         group: staff
         mode: '0644'
         backup: yes
-
-    - name: Print out dotfiles dir
-      debug:
-        msg: "where am i {{ dotfiles_dir.stdout }}"
 
     # - name: Copy inputrc file
