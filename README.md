@@ -41,6 +41,9 @@ Add to `PATH.`
 ```
 export PATH=/Users/<user>/Library/Python/<version number>/bin:$PATH
 ```
+```
+echo "export PATH=/Users/jianhao/Library/Python/3.9/bin:$PATH" | tee -a ~/.zshrc
+```
 ---
 
 ## Setup
