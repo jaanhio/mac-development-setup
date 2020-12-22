@@ -51,3 +51,16 @@ echo "export PATH=/Users/$(whoami)/Library/Python/3.9/bin:$PATH" | tee -a ~/.zsh
 ```
 ansible-playbook main.yml -i inventory --ask-become-pass
 ```
+
+### Using custom collection
+It is possible to overwrite Ansible collection referenced in playbooks to test custom collections/changes/bug fixes
+```
+ANSIBLE_COLLECTIONS_PATH=<ansible-collection-top-level-directory> ansible-playbook -i inventory test-ansible-dev.yaml
+```
+where `ansible-collection-top-level-directory` contains `ansible_collections/<ansible-collection-path>`
+
+```
+└── ansible_collections
+    └── community
+        └── general
+```
