@@ -11,6 +11,7 @@ homebrew_share_path: "{{ homebrew_base_path }}/share"
 
 homebrew_installed_packages:
     - autoconf
+    - cfssl
     - git
     - helm
     - htop
