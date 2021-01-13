@@ -19,4 +19,11 @@
         mode: '0644'
         backup: yes
 
-    # - name: Copy inputrc file
+    - name: Copy vimrc file
+      copy:
+        src: "{{ playbook_dir }}/files/dotfiles/.vimrc"
+        dest: "{{ dotfiles_dir.stdout }}"
+        owner: "{{ ansible_user_id }}"
+        group: staff
+        mode: '0644'
+        backup: yes

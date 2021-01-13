@@ -30,6 +30,7 @@ homebrew_installed_packages:
     - yarn
     - zsh
     - zsh-completion
+    - zsh-history-substring-search
     - zsh-syntax-highlighting
 
 homebrew_taps:
