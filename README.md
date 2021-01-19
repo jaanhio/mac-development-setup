@@ -70,4 +70,4 @@ where `ansible-collection-top-level-directory` contains `ansible_collections/<an
 # ZSH theme setup
 
 `oh-my-zsh` is used to customize the terminal shell. Theme used is `agnoster`. In order to use `agnoster`, `Menlo For Powerline` fonts have to be installed and selected in iTerm preference under `Profiles > Text`.
-The fonts can be downloaded via this repository.
+The fonts can be downloaded via this repository https://github.com/abertsch/Menlo-for-Powerline.

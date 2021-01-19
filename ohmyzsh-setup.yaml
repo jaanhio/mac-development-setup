@@ -10,8 +10,8 @@
     - name: Ensure oh-my-zsh has been installed
       stat:
         path: "{{ root_dir }}/.oh-my-zsh"
-      register: oh-my-zsh-result
+      register: oh_my_zsh_result
 
     - name: Install oh-my-zsh if does not exist
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-      when: not oh-my-zsh-result.stat.exists
+      when: not oh_my_zsh_result.stat.exists
