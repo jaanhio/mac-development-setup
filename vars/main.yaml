@@ -16,11 +16,13 @@ homebrew_installed_packages:
     - helm
     - htop
     - jsonnet
+    - jq
     - kubectl
     - libevent
     - mcrypt
     - nmap
     - node
+    - nvm
     - openssl
     - python
     - sqlite
