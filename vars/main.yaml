@@ -13,6 +13,7 @@ homebrew_installed_packages:
     - autoconf
     - cfssl
     - git
+    - graphviz
     - helm
     - htop
     - jsonnet
