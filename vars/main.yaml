@@ -49,10 +49,12 @@ homebrew_cask_apps:
     - docker
     - franz
     - iterm2
+    - openvpn-connect
     - postman
     - sequel-pro
     - sizeup
     - slack
+    - terraform
     - vagrant
     - virtualbox
     - visual-studio-code
