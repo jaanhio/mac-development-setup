@@ -69,5 +69,17 @@ where `ansible-collection-top-level-directory` contains `ansible_collections/<an
 
 # ZSH theme setup
 
-`oh-my-zsh` is used to customize the terminal shell. Theme used is `agnoster`. In order to use `agnoster`, `Menlo For Powerline` fonts have to be installed and selected in iTerm preference under `Profiles > Text`.
-The fonts can be downloaded via this repository https://github.com/abertsch/Menlo-for-Powerline.
+`oh-my-zsh` is used to customize the terminal shell. Theme used is `Power10K` https://github.com/romkatv/powerlevel10k
+Theme configuration file can be found at `/files/dotfile/.p10k.zsh`.
+iTerm profile can be found at `/files/P10K.json`.
+
+Color depends on 2 things:
+* P10K configuration value
+* iTerm color palette
+
+For more iTerm color schemes: https://iterm2colorschemes.com/
+
+To see how the different color code set in P10K file will be rendered, run:
+```
+for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+```
